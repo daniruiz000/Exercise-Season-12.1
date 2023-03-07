@@ -56,7 +56,7 @@ const ShoppingCart = () => {
     const inputPriceRef = React.useRef(null);
 
     const additionPrices = (list)=>{
-        console.log('sumando precios')
+        console.log('sumando precio total')
         const totalPriceArray =[]
         list.map(product =>{
             const totalPrice =  product.price * product.amount
@@ -111,14 +111,14 @@ const ShoppingCart = () => {
                 <input ref={inputPriceRef} type='number' placeholder='Introduce el precio'></input>
                 <button type='submit'>Añadir al carrito</button>
             </form>
-            <div>
+            <div className='shopping-cart__container'>
                 <h4>Productos</h4>
                 <ul className='shopping-cart__list'>
 
                     {state.productList.map((product) =><Product key={product.id} product={product} handleClick={deleteProduct}/>)}
 
                 </ul>
-                <p>Total: {memoizedValue}€</p>
+                <p className='shopping-cart__addition'>Total: {memoizedValue}€</p>
             </div>
         </div>
     )
