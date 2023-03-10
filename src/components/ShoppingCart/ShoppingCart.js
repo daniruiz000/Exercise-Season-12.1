@@ -75,7 +75,8 @@ const ShoppingCart = () => {
     const onSubmit = React.useCallback((event) => {
         console.log('Añade producto a la lista')
         event.preventDefault();
-
+        event.stopPropagation();
+        
         const payload = {
             productName: inputNameRef.current.value,
             amount: inputAmountRef.current.value,
